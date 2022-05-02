@@ -1,9 +1,15 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Test from "./Test";
+import "./Player.css";
+import Player from "./Player";
 
 function App() {
-  return <Test />;
+  return (
+    <div className="card">
+      <Player />
+      <Player />
+      <Player />
+    </div>
+  );
 }
 
 export default App;
