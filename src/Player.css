@@ -2,12 +2,17 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 10px;
+  border: solid 1px;
+  background-color: rgb(243, 198, 115);
 }
 .cardplayer {
   border: solid 1px;
-  background-color: rgb(243, 198, 115);
-  padding: 10px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.cardHeader {
+  display: flex;
+  justify-content: space-around;
 }

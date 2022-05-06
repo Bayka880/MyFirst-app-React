@@ -1,10 +1,10 @@
 import Score from "./Score";
 
-function Player() {
+function Player(pros) {
   return (
     <div className="cardplayer">
-      <p>Bayanjargal</p>
-      <Score />
+      <p>{pros.playerData.name}</p>
+      <Score getData={pros.playerData} modifyScore={pros.modifyScore} />
     </div>
   );
 }
