@@ -1,6 +1,6 @@
 function Score(pros) {
   function incAndDec(e) {
-    if (e.target.textContent == "+") {
+    if (e.target.textContent === "+") {
       pros.modifyScore("+", pros.index);
     } else {
       pros.modifyScore("-", pros.index);

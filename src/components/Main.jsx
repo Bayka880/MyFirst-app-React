@@ -51,7 +51,7 @@ function Main() {
   }
 
   function modifyScore(pm, index) {
-    if (pm == "+") {
+    if (pm === "+") {
       player[index].score += 1;
     } else {
       player[index].score -= 1;
