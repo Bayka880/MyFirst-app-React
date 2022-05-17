@@ -4,7 +4,6 @@ import { Modal, Form } from "react-bootstrap";
 
 function Addplayer(props) {
   const [show, setShow] = useState(false);
-  const [input, setInput] = useState();
 
   const handleClose = () => {
     setShow(false);

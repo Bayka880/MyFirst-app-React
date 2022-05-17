@@ -1,5 +1,3 @@
-import Score from "./Score";
-
 const style = {
   width: "20px",
 };
@@ -11,10 +9,10 @@ function Player(pros) {
         pros.average < pros.playerData.score ? "cardplayerBg" : "cardplayer"
       }
     >
-      {pros.max === pros.playerData.score ? (
-        <img src="crown.svg" style={style}></img>
+      {pros.max == pros.playerData.score ? (
+        <img src="crown.svg" alt="crown" style={style}></img>
       ) : (
-        <img src=""></img>
+        <img src="" alt="crown"></img>
       )}
       <p>{pros.playerData.name}</p>
       <Score
@@ -30,5 +28,5 @@ function Player(pros) {
     </div>
   );
 }
-// setScore={setScore}
+
 export default Player;
