@@ -10,10 +10,10 @@ function Player(pros) {
         pros.average < pros.playerData.score ? "cardplayerBg" : "cardplayer"
       }
     >
-      {pros.max == pros.playerData.score ? (
+      {pros.max === pros.playerData.score ? (
         <img src="crown.svg" alt="crown" style={style}></img>
       ) : (
-        <p></p>
+        <span></span>
       )}
       <p>{pros.playerData.name}</p>
       <Score

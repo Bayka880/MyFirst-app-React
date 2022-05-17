@@ -1,5 +1,3 @@
-import Player from "./Player";
-
 function Playerscore(props) {
   let playercount = 4;
   return (
