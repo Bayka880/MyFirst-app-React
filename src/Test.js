@@ -12,3 +12,13 @@
 //   );
 // }
 // export default Test;
+// function findPlayerIndex(playerName) {
+//   let foundIndex = 0;
+//   player.map((p, index) => {
+//     if (p.name == playerName) {
+//       foundIndex = index;
+//       // debugger;
+//     }
+//   });
+//   return foundIndex;
+// }
