@@ -2,7 +2,7 @@ import Player from "./Player";
 import Scoreboard from "./Scoreboard";
 import Playerscore from "./Playerscore";
 import Addplayer from "./Addplayer";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 let players = [
   {
