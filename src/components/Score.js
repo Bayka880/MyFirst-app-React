@@ -1,5 +1,4 @@
 function Score(pros) {
-  // console.log(pros);
   function incAndDec(e) {
     if (e.target.textContent == "+") {
       pros.modifyScore("+", pros.index);
