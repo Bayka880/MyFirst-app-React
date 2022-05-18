@@ -5,11 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
+import PlayerProvider from "./context/PlayerContext";
 
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <PlayerProvider>
+        <App />
+      </PlayerProvider>
     </React.StrictMode>
   </BrowserRouter>,
   document.getElementById("root")

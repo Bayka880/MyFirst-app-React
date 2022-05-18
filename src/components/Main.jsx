@@ -2,39 +2,14 @@ import Player from "./Player";
 import Scoreboard from "./Scoreboard";
 import Playerscore from "./Playerscore";
 import Addplayer from "./Addplayer";
-import { useState } from "react";
-
-let players = [
-  {
-    name: "Erhes",
-    age: "15",
-    gender: "male",
-    score: 10,
-  },
-  {
-    name: "mygaa",
-    age: "26",
-    gender: "male",
-    score: 12,
-  },
-  {
-    name: "odko",
-    age: "24",
-    gender: "female",
-    score: 10,
-  },
-  {
-    name: "sarnai",
-    age: "20",
-    gender: "female",
-    score: 8,
-  },
-];
-
+// import { useState, useEffect } from "react";
+import { usePlayer } from "../context/PlayerContext";
+import { useEffect } from "react";
 function Main() {
-  const [player, setPlayer] = useState(players);
+  const [players, setPlayer] = usePlayer();
+
   function sortFunc() {
-    let newData = new Array(...player);
+    let newData = new Array(...players);
     newData.sort((player1, player2) => {
       return player1.name < player2.name ? 1 : -1;
     });
@@ -42,7 +17,7 @@ function Main() {
     setPlayer(newData);
   }
   function sortNumber() {
-    let newData = new Array(...player);
+    let newData = new Array(...players);
     newData.sort((a, b) => {
       return a.score < b.score ? 1 : -1;
     });
@@ -52,15 +27,14 @@ function Main() {
 
   function modifyScore(pm, index) {
     if (pm === "+") {
-      player[index].score += 1;
+      players[index].score += 1;
     } else {
-      player[index].score -= 1;
+      players[index].score -= 1;
     }
-    setPlayer([...player]);
+    setPlayer([...players]);
   }
   function addplayer(obj) {
-    console.log(obj);
-    setPlayer([...player, obj]);
+    setPlayer([...players, obj]);
   }
   function average() {
     let total = 0;
@@ -69,36 +43,41 @@ function Main() {
   }
   let numberAva = average();
   function playerRemove(e) {
-    let filter = player.filter((item) => item.name !== e);
+    let filter = players.filter((item) => item.name !== e);
     setPlayer(filter);
   }
   function max() {
-    const score = player.map((object) => {
+    const score = players.map((object) => {
       return object.score;
     });
     return Math.max(...score);
   }
   let getmax = max();
-
+  useEffect(() => {
+    if (players.length !== 0) {
+      localStorage.setItem("players", JSON.stringify(players));
+    }
+  }, [players]);
   return (
     <div className="card">
       <div className="cardHeader">
         <Scoreboard sortFunc={sortFunc} />
         <Playerscore sortNumber={sortNumber} />
       </div>
-      {player.map((player, index) => {
-        return (
-          <Player
-            key={index}
-            playerData={player}
-            average={numberAva}
-            index={index}
-            modifyScore={(pm) => modifyScore(pm, index)}
-            playerRemove={playerRemove}
-            max={getmax}
-          />
-        );
-      })}
+      {players &&
+        players.map((player, index) => {
+          return (
+            <Player
+              key={index}
+              playerData={player}
+              average={numberAva}
+              index={index}
+              modifyScore={(pm) => modifyScore(pm, index)}
+              playerRemove={playerRemove}
+              max={getmax}
+            />
+          );
+        })}
 
       <Addplayer addplayer={addplayer} />
     </div>
